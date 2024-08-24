@@ -41,6 +41,14 @@ const styles = StyleSheet.create({
     createTodoText: {
         fontSize: 16,
         fontWeight: '600',
+    },
+    emptyList: {
+        paddingTop: 42,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    clickHereText: {
+        fontWeight: 'bold',
     }
 })
 

@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start:ios": "nx run-ios todo-list",
-    "start:android": "nx run-android todo-list",
-    "start:expo": "nx run todo-list:start",
-    "start:express": "nx serve server",
-    "start:both:ios": "concurrently \"npm run start:ios\" \"npm run start:express\"",
-    "start:both:android": "concurrently \"npm run start:android\" \"npm run start:express\""
+    "start:ios": "npx nx run-ios todo-list",
+    "start:android": "npx nx run-android todo-list",
+    "start:expo": "npx nx run todo-list:start",
+    "start:server": "npx nx serve server",
+    "start:both:ios": "concurrently \"npm run start:ios\" \"npm run start:server\"",
+    "start:both:android": "concurrently \"npm run start:android\" \"npm run start:server\""
   },
   "private": true,
   "devDependencies": {

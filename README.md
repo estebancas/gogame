@@ -1,59 +1,93 @@
 # GoGame
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
-
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
-
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/intro#learn-nx?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
-
-## Finish your remote caching setup
-
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/LEW6lU5Qj4)
+![Evidence](./docs/simulation.gif)
 
 
-## Run tasks
+### Why Monorepo?
 
-To run tasks with Nx use:
+I chose a monorepo architecture for this project to streamline development and simplify management by bundling both the React Native app and the Express server into a single repository. While this is not the typical approach I would take for all projects, it suits this particular case well. The primary benefits of using a monorepo here are:
 
-```sh
-npx nx <target> <project-name>
-```
+- **Unified Development**: Manage both front-end and back-end in one place, making coordination and integration easier.
+- **Consistent Dependencies**: Ensure that both applications use compatible versions of shared libraries and tools.
+- **Simplified Workflow**: Simplify the build and deployment processes by handling everything in a single repository.
 
-For example:
+### Running the project
+To run both the Express server and the React Native app simultaneously, follow these steps:
 
-```sh
-npx nx build myproject
-```
+### Prerequisites
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+Before running the project, make sure you have the following installed:
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- [Node.js](https://nodejs.org/)
+- [Yarn](https://yarnpkg.com/) or [NPM](https://www.npmjs.com/)
+- [Expo CLI](https://docs.expo.dev/more/expo-cli/)
+- [Xcode](https://developer.apple.com/xcode/)
+- [Android Studio](https://developer.android.com/studio)
+- [Nx](https://nx.dev/getting-started/installation) (Just in case)
 
-## Add new projects
+### Setup
 
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
+#### Install dependencies:
 
-To install a new plugin you can use the `nx add` command. Here's an example of adding the React plugin:
-```sh
-npx nx add @nx/react
-```
-
-Use the plugin's generator to create new projects. For example, to create a new React app or library:
+In the root directory of the project for both projects run:
 
 ```sh
-# Genenerate an app
-npx nx g @nx/react:app demo
-
-# Generate a library
-npx nx g @nx/react:lib some-lib
+npm run install
 ```
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+#### Build the server:
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+before running the server you may need to build it:
 
+```sh
+npx nx build server
+```
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### Running both applications
+
+#### Start Metro Bundler and the iOS Simulator:
+
+Use the following command to start Metro Bundler (for React Native) and run the iOS simulator:
+
+```sh
+npm run start:both:ios
+```
+
+This command will run:
+
+- `npm run start:ios` – Starts the Metro Bundler for the React Native app.
+- `npm run start:server` – Starts the Express server.
+
+or same for android
+
+```sh
+npm run start:both:android
+```
+
+#### Access the Applications:
+
+- **React Native App**: The Metro Bundler will open a development server. You can use Expo Go on your mobile device or an iOS simulator to run the app.
+- **Express Server**: The server will be running on http://localhost:3333 (or the port specified in your server project configuration).
+
+Or you can simply open a terminal and run a command for each project
+
+Server:
+
+```sh
+npm run start:server
+```
+
+RN app:
+
+```sh
+npm run start:expo
+```
+
+You can run `npx nx graph` to visually explore what was created. (optional)
+
+### Aditional Notes
+- **Environment Variables**: Ensure you have the necessary environment variables set up for both the Express server and React Native app. Refer to the respective documentation for each project for more details on required variables.
+- **Troubleshooting**: If you encounter issues, check the logs in your terminal for errors. Common problems might include missing dependencies, incorrect configurations, or issues with the development environment. Feel free to reach out to me at my personal email: estcascor94@gmail.com
 
 ## Install Nx Console
 
@@ -65,13 +99,7 @@ Nx Console is an editor extension that enriches your developer experience. It le
 
 Learn more:
 
-- [Learn more about this workspace setup](https://nx.dev/getting-started/intro#learn-nx?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
+- [Learn more about this workspace setup](https://nx.dev/getting-started/intro#learn-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 - [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 - [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 - [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)

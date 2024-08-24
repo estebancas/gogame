@@ -30,9 +30,9 @@ export const TodoList = () => {
         },
         {
           text: 'Ok',
-          onPress: (text) => {
+          onPress: async (text) => {
             if (text) {
-              addTask({
+              await addTask({
                 todo: text,
                 state: 'pending',
               });
@@ -80,11 +80,10 @@ export const TodoList = () => {
   );
 
   const ListEmpty = () => (
-    <View>
-      <TouchableOpacity>
+    <View style={styles.emptyList}>
+      <TouchableOpacity onPress={handleCreateNew}>
         <Text>
-          You dont have any task <Text>click here</Text> to create you first
-          task
+          You dont have any task <Text style={styles.clickHereText}>click here</Text> to create one.
         </Text>
       </TouchableOpacity>
     </View>
