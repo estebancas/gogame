@@ -1,0 +1,22 @@
+{
+  "name": "todo-list",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-native": "*",
+    "@testing-library/react-native": "*",
+    "metro-config": "*",
+    "react-native": "*",
+    "expo": "*",
+    "react-native-svg": "*",
+    "react-native-web": "*",
+    "react": "18.2.0",
+    "@react-native-async-storage/async-storage": "1.23.1"
+  },
+  "scripts": {
+    "eas-build-pre-install": "cd ../../ && node tools/scripts/eas-build-pre-install.mjs . apps/todo-list && cp package-lock.json apps/todo-list",
+    "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/todo-list",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
+  }
+}
