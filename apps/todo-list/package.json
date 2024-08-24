@@ -10,8 +10,7 @@
     "expo": "*",
     "react-native-svg": "*",
     "react-native-web": "*",
-    "react": "18.2.0",
-    "@react-native-async-storage/async-storage": "1.23.1"
+    "react": "18.2.0"
   },
   "scripts": {
     "eas-build-pre-install": "cd ../../ && node tools/scripts/eas-build-pre-install.mjs . apps/todo-list && cp package-lock.json apps/todo-list",
